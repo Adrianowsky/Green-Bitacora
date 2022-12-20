@@ -1,0 +1,76 @@
+/* LOGIN PAGE
+   ========================================================================== */
+
+/* FONTS
+   ========================================================================== */
+
+/* montserrat-regular - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'),
+       url('../fonts/montserrat-v13-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/montserrat-v13-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+body {
+  font-size: 1em;
+  font-family: 'Montserrat', sans-serif;
+  color: #131516;
+}
+
+#login {
+  position: absolute;
+  left: 50%;
+	background:white;
+	box-shadow: 0 2px 10px rgba(0,0,0,.15);
+	border-radius: 10px;
+	padding: 10px 0;
+	margin:50px 0 50px -160px;
+}
+
+.login {
+  background-image: url('../images/login_bg.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#loginform {
+	box-shadow: none;
+}
+
+#wp-submit {
+  width: auto;
+  background: #00c07f;
+  border-radius: 4px;
+  height: 38px!important;
+  color: initial;
+  text-shadow: none;
+  padding: 5px;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,.15);
+  cursor: pointer;
+  transition: background ease 300ms;
+}
+
+#wp-submit:hover {
+  background: #1dacec;
+}
+
+#backtoblog, 
+.privacy-policy-page-link,
+#login > h1 /* Hide Wordpress logo */
+{ display: none; }
+
+/* PHONES & TABLETS VIEW */
+@media only screen and (max-width: 768px) {
+  .login {
+    background-image: url('../images/login_bg_phone.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}

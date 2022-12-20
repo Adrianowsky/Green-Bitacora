@@ -1,0 +1,159 @@
+/* PAGE ELEMENTS
+   ========================================================================== */
+.page-box {
+  padding-bottom: 1em;
+  margin: auto;
+  box-shadow: 0 2px 10px rgba(0,0,0,.15);
+  border-radius: 10px;
+}
+
+.page-title-box {
+  position: relative;
+  height: 150px;
+  margin-bottom: 1em;
+}
+
+.page-container .wp-post-image {
+  position: absolute;
+  top: 0;
+  height: 150px;
+  max-width: 730px;
+  border-radius: 10px 10px 0 0;
+  filter: brightness(50%);
+  object-fit: cover;
+}
+
+.page-title {
+  position: relative;
+  top:20px;
+  text-align: center;
+  color: white;
+  padding: 1em;
+  font-weight: 500;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.page-text-box {
+  padding: 0 2em;
+}  
+
+.page-text-box p {
+    margin: 1em 0;
+}
+
+.page-text-box img {
+  margin: 15px auto;
+    display: block;
+    width: auto;
+    max-height: 350px;
+}
+
+.page-text-box a {
+  color: #FF5F6D;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--general-transition);
+}
+
+.page-text-box a:hover {
+  color: #FFC371;
+}
+
+.wp-block-embed-youtube > div {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 51%; /* To keep aspect ratio */
+}
+
+.wp-block-embed iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0; top: 0;
+}
+
+
+/* DESKTOP VIEW */
+@media only screen and (min-width: 769px){
+  .page-box {
+    width:730px; 
+    margin: 40px auto;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .page-box {
+    display:block;
+    margin: auto;
+    vertical-align: top;
+  }
+}
+
+/* PHONES & TABLETS VIEW */
+@media only screen and (max-width: 768px) {
+  .page-container {
+    margin: 0;
+  }
+  .page-box {
+    margin-bottom: 40px;
+    border-radius: 0;
+  }
+  .page-container .wp-post-image {
+    max-width: 100%;
+    border-radius: 0;
+  }
+  .page-text-box {
+    padding: 0 1em;
+  }
+}
+
+
+/* PAGE FORMS
+   ========================================================================== */
+.yogi { display: none; }
+
+select, 
+input[type=text],
+input[type=email],
+textarea  {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #D7DBE0;
+  border-radius: 3px;
+  width: 92%;
+  background: #f7f7f7;
+}
+
+textarea {
+  resize: none;
+  height: 300px;
+}
+
+.submit-area .submit {
+  width: 150px;
+  background: var(--button-bg);
+  border-radius: 4px;
+  padding: 10px;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,.15);
+  cursor: pointer;
+  transition: background var(--general-transition);
+}
+
+.submit:hover {
+  background: var(--button-hover-bg);
+}
+
+.submit-area {
+  text-align: center;
+}
+
+.success, .error {
+    text-align: center;
+    font-weight: bold;
+    padding: 30px;
+}
+
+.success { color: #00c07f; }
+.error { color: red; }

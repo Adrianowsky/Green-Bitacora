@@ -1,0 +1,1151 @@
+/*
+Theme Name: Green Bitácora
+Author: Adrián Gracia
+Description: The official Green Bitácora theme 
+Version: 1.0
+*/ 
+
+
+
+/* NORMALIZE CSS
+   ========================================================================== */
+
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Remove the margin in all browsers.
+ */
+
+body {
+  margin: 0;
+}
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+
+/* GENERAL CSS
+   ========================================================================== */
+:root {
+    --general-transition: ease 300ms;
+    --white-black: #131516;
+    --bg-color: #f7f7f7;
+    --navbar-color: rgba(0, 192, 127, 0.7);
+    --mobilmenu-color: rgb(49, 202, 150);
+    --button-bg: #00c07f;
+    --button-hover-bg:#1dacec;
+    --box-bg: #ffffff;
+    --box-text: #131516;
+    --footer-bg: rgba(138, 181, 199, 0.6);
+    --sun-icon: hidden;
+    --moon-icon: visible;
+}
+
+[data-theme="dark"] {
+    --white-black: #ffffff;
+    --bg-color: #121212;
+    --navbar-color: rgba(50, 50, 50, 0.8);
+    --navicon-color: white;
+    --mobilmenu-color: #323232;
+    --box-bg: #272727;
+    --box-text: #b3b9c5;
+    --footer-bg: rgba(50, 50, 50, 0.8);
+    --sun-icon: visible;
+    --moon-icon: hidden;
+}
+
+ul, ol, li, dl, dt, dd, 
+h1, h2, h3, h4, h5, h6, 
+hgroup, p, blockquote, 
+figure, form, fieldset, 
+input, legend, pre, abbr, button {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  background: #fdfdfd;
+  transition: background var(--general-transition);
+}
+
+[data-theme="dark"] body {
+  background: var(--bg-color);
+  transition: background var(--general-transition);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove blue highlight on click for Chrome */
+div,
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+ul { list-style: none; }
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+.lockScroll {
+  overflow: hidden;
+}
+
+
+/* FUNCTIONAL CSS
+   ========================================================================== */
+
+   /* include the repeated css like text-align, color, margin, etc */
+.txt-center {
+  text-align: center;
+}
+
+.mgn-auto {
+  margin: auto;
+}
+
+
+
+/* FONTS
+   ========================================================================== */
+
+/* montserrat-regular - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'),
+       url('fonts/montserrat-v14-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('fonts/montserrat-v14-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* montserrat-italic - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Montserrat Italic'), local('Montserrat-Italic'),
+       url('fonts/montserrat-v14-latin-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('fonts/montserrat-v14-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* montserrat-700 - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'),
+       url('fonts/montserrat-v14-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('fonts/montserrat-v14-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* open-sans-regular - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'),
+       url('fonts/open-sans-v17-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('fonts/open-sans-v17-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+body {
+  font-size: 1em;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--white-black);
+}
+
+.page-container, .author-bio p {
+  line-height: 26px;
+}
+
+#content h1 {
+  font-size: 33px;
+  line-height: 51px;
+}
+
+#content h2 {
+  font-size: 26px;
+  line-height: 40px;
+}
+
+#content h3 {
+  font-size: 20px;
+  line-height: 32px;
+}
+
+#footer {
+  font-size: 14px;
+}
+
+
+/* SMARTPHONES */
+@media only screen and (max-width: 455px) {
+  #content h1 {
+    font-size: 26px;
+    line-height: 39px;
+  }
+}
+
+/* TABLETS & SMALL DESKTOP */
+@media only screen and (min-width: 768px) {
+  #content h1 {
+    line-height: 53px;
+  }
+
+  #content h2 {
+    line-height: 43px;
+  }
+
+  #content h3 {
+    line-height: 34px;
+  }
+}
+
+/* DESKTOP */
+@media only screen and (min-width: 1025px) {
+  .page-container, .author-bio p {
+    line-height: 28px;
+  }
+}
+
+
+/* HEADER
+   ========================================================================== */
+#navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9999;
+  display: block;
+  margin: 0;
+  width: 100%;
+  height: 50px;
+  background-color: var(--navbar-color);
+  box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+  transition: all var(--general-transition);
+}
+
+#nav-elements {
+    height: inherit;
+    margin: auto;
+    max-width: 1600px;
+}
+
+#nav-menu, 
+#nav-logo-container,
+.nav-list, 
+#nav-icons-container {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  vertical-align: top;
+}
+
+#nav-menu, 
+.nav-list {
+  justify-content: flex-end;
+}
+
+#nav-logo-container {
+  justify-content: flex-end;
+  width:24%;
+  height: inherit;
+}
+
+#logo {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+#logo-icon {
+  height: inherit;
+}
+
+#logo-icon .st0, 
+#logo-icon .Acento {
+  stroke-width:3;       /* Increase thickness for better contrast */
+}
+
+[data-theme="dark"] #logo-icon .st0 {
+  fill:#2FCC71;
+  stroke: #2FCC71;
+}
+[data-theme="dark"] #logo-icon .Acento {
+  fill:#3598db;
+  stroke:#3598db; 
+}
+/* PHONES & TABLETS VIEW */
+@media only screen and (max-width: 1024px) {
+  #nav-logo-container { 
+    width: 20%; 
+    justify-content: center;
+  }
+  .logo-text { display: none; }
+  #logo-icon .st0, #logo-icon .Acento {
+    stroke-width:initial;
+  }
+  #logo-icon { margin-left: 15px; }
+}
+
+#nav-search {
+  width:100%;
+  position: absolute;
+  transition: opacity var(--general-transition);
+}
+
+#nav-search .search-field {
+    border-radius: 4px;
+    padding: 6px;
+    height: 36px;
+    border: none;
+    background: #f7f7f757;
+    width:100%;
+    outline: none;
+}
+
+#nav-search ::placeholder, #nav-search input {
+    color: var(--white-black);
+}
+
+#nav-search-icon,
+#nav-night-mode,
+.nav-lang-container {
+  padding-right: 20px;
+} 
+
+#nav-search-icon,
+#nav-night-mode {
+  min-width:33px;
+}
+
+.nav-lang-container {
+  min-width: 60px;
+  list-style: none;
+  display: flex;
+}
+
+.lang-item {
+  margin:auto;
+  text-transform: uppercase;
+}
+
+#nav-menu {
+  width: 60%;
+  height: inherit;
+}
+
+#nav-icons-container {
+  width:15%;
+  height: inherit;
+  justify-content: center;
+}
+
+.nav-list {
+    width: 100%;
+    height: inherit;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity var(--general-transition);
+}
+
+.nav-search-on .nav-list {
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nav-list li {
+  list-style: none;
+  padding: 0 20px;
+}
+
+#nav-menu-icon {
+  display: none;
+  position: relative;
+  justify-content: center;
+  height: inherit;
+  align-items: center;
+  z-index: 2;
+}
+
+#nav-menu-icon,
+#nav-search-icon,
+#nav-night-mode {
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav-icon {
+  width: 26px;
+  height: 26px;
+  margin: auto;
+  vertical-align: middle;
+  transition: all var(--general-transition);
+  fill: var(--white-black);
+}
+
+#nav-search-icon .close-icon,
+.nav-search-on #nav-search-icon .search-icon {
+  visibility: hidden;
+}
+
+.sun-icon { visibility: var(--sun-icon); }
+.moon-icon { visibility: var(--moon-icon); }
+
+.nav-search-on #nav-search-icon .close-icon {
+  visibility: visible;
+}
+
+
+/* DESKTOP VIEW */
+@media only screen and (min-width: 1025px) {
+  #nav-search {
+      z-index: 2;
+      opacity: 0;
+      pointer-events: none;
+  }
+  .nav-search-on #nav-search {
+      z-index: 1;
+      opacity: 1;
+      pointer-events:auto;
+  }
+}
+
+/* PHONES & TABLETS VIEW */
+@media only screen and (max-width: 1024px) {
+  #navbar {
+    position: fixed;
+  }
+  #nav-menu-icon {
+    display: inline-flex;
+    width:55%;
+  }
+  #nav-icons-container {
+    width: 20%;
+    margin-right: 2%;
+  }
+  #nav-search-icon {
+    display: none;
+  }
+  #nav-menu {
+    display: block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 50px;
+    max-height: 0;
+    height: 0;
+    opacity: 0;
+    width:100%;
+    overflow: hidden;
+    transition: 
+      background var(--general-transition),
+      opacity var(--general-transition);
+
+  }
+  .nav-menu-down #nav-menu {
+    max-height: 9999px!important;
+    height: 9999px!important;
+    opacity: 1!important;
+  }
+  #navbar.nav-menu-down, #nav-menu {
+    background-color: var(--mobilmenu-color);
+  }
+  #navbar.nav-menu-down input,
+  #navbar.nav-menu-down ::placeholder {
+    color: initial;
+  }
+  #nav-search {
+    position: initial;
+    right: 0;
+    width: 90%;
+    margin: 30px auto;
+  }
+  #nav-search .search-field {
+    background: #f7f7f7;
+  }
+  .nav-list {
+    display: block;
+  }
+  .nav-list li {
+    padding: 7px 30px;
+  }
+  .menu-item a{
+    display: block;
+    width: 100%;
+  }
+  .menu-item::after {
+    content: "";
+    height: 1px;
+    display: block;
+    margin: auto;
+    border-bottom: solid 1px var(--white-black);
+    transition: all var(--general-transition);
+    padding-top: 12px;
+  }
+}
+
+/* PHONE VIEW */
+@media only screen and (max-width: 420px) {
+  #world-icon {
+    display: none;
+  }
+  .nav-icon {
+    width:24px;
+    height: 24px;
+  }
+  #nav-night-mode,
+  .nav-lang-container {
+    padding-right: 10px;
+  } 
+  .nav-lang-container {
+    min-width: 30px;
+  } 
+}
+
+/* POSTS & PAGES & FRONTPAGE
+   ========================================================================== */
+#content {
+  position: relative;
+  min-height: 100vh;
+  max-width: 1299px;
+  margin: 50px auto; /* margin top same as navbar height */
+}
+
+.home #content {padding: 50px;}
+
+.page-container {
+  max-width: 1200px;
+  width:100%;
+  margin: 120px auto;
+}
+
+/* STICKY POST */
+.sticky-post-container {
+  max-width: 1024px;
+  margin: auto;
+}
+
+.sticky-post-container .post-title-box {
+  position: relative;
+  display: table;
+  width: 100%;
+  height: 350px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.15);
+}
+.sticky-post-container .wp-post-image {
+  position: absolute;
+  top: 0; left: 0;
+  height: inherit;
+  width: 100%;
+  filter: brightness(60%);
+  object-fit: cover;
+}
+
+.sticky-post-container:hover .wp-post-image{ 
+  filter: brightness(70%);
+}
+
+.sticky-post-container .post-title {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 43px!important;
+  line-height: 70px!important;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Para usar con imagenes en el background*/
+}
+
+@media only screen and (max-width: 768px) {
+  .home #content {
+    padding: 0px;
+  }
+
+  .sticky-post-container .post-title {
+    font-size: 28px!important;
+    line-height: 44px!important;
+    padding: 0 0.5em;
+  }
+
+  .home-post-cards-title {
+    text-align: center!important;
+  }
+
+  .home-post-cards-title h2:after {
+    margin: auto;
+  }
+}
+
+/* POST CARDS */
+#home-post-cards {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.home-post-cards-title {
+  text-align: left;
+}
+
+.home-post-cards-title h2:after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(to right, #59c173, #a17fe0, #5d26c1);
+}
+
+.home-post-cards-title h2 {
+  font-size: 36px!important;
+  line-height: 50px!important;
+  font-weight: normal;
+}
+
+.post-card {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  text-align: left;
+  width: 280px;
+  margin:25px 12.5px;
+  overflow-wrap: break-word;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.15);
+}
+
+.post-card .post-title-box {
+  position: relative;
+  height: 250px;
+}
+
+.post-card .post-title {
+  top: 1em;
+  position: relative;
+  padding: 0 1em;
+  font-size: 25px!important;
+  line-height: 41px!important;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Para usar con imagenes en el background*/
+}
+
+.post-card .post-text-box {
+  padding: 1em;
+  line-height: 21px;
+}
+
+.post-card .post-text-box p {
+  margin: 1em 0;
+}
+
+.post-card .post-text-box img {
+  margin: 15px auto;
+  display: block;
+  width: auto;
+  max-height: 350px;
+}
+
+.post-card .post-text-box a,
+.post-card .post-summary a {
+  color: #FF5F6D;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--general-transition);
+}
+
+.post-card .post-text-box a:hover,
+.post-card .post-summary a:hover {
+  color: #FFC371;
+}
+
+.post-card .wp-post-image {
+  position: absolute;
+  top: 0; left: 0;
+  height: 250px;
+  max-width: 100%;
+  filter: brightness(50%);
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.post-card .post-summary {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  max-height: 210px;
+  overflow: auto;
+  color: white;
+  padding: 1em;
+  opacity: 0;
+  transition: all var(--general-transition);
+  z-index: 10;
+  line-height: 21px;
+}
+
+@media only screen and (max-width: 665px) {
+  .post-card {
+    display: block;
+    margin: 25px auto;
+    width: 300px;
+  }
+}
+
+/* AUTHOR PAGE */
+.author-bio {
+  max-width: 666px;
+  padding: 45px 1em;
+  margin: 0px auto 25px auto;
+}
+
+.author-bio p {
+  margin: 1em 0;
+}
+
+/* SEARCH PAGE */
+header.search-results-header {
+    padding-top: 25px;
+}
+
+.search-results-container {
+    max-width: 1400px;
+    margin: 25px auto;
+}
+
+.search .post-title-box {
+  height: auto!important;
+}
+
+.search .post-card .post-title {
+  top: 0;
+  position: initial;
+  color: var(--white-black);
+  font-size: 20px!important;
+  line-height: 30px!important;
+  padding: 1em 1em 0 1em;
+  text-shadow: none;
+  visibility: visible;
+  opacity: 1;
+  transition: all var(--general-transition);
+}
+
+.post,
+.page-box,
+.post-card,
+.pagination .nav-links {
+  background-color: var(--box-bg);
+  color: var(--box-text);
+  transition: background var(--general-transition);
+}
+
+.post-title {
+  color: white;
+}
+
+.separator {
+  height: 2px;
+  background: #59c173; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #59c173, #a17fe0, #5d26c1); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #59c173, #a17fe0, #5d26c1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.wp-block-image figcaption {
+  color: var(--box-text);
+  margin: 0!important;
+  text-align: center;
+  font-size: 13px;
+}
+
+.post-text-box .pt-date,
+.post-text-box .category-container {
+  display: inline-block;
+  padding: 6px;
+}
+
+.post-text-box .category-container {
+  float: right;
+  border-radius: 4px;
+  transition: background var(--general-transition);
+}
+
+.category-container a {
+  color: white!important;
+  font-weight: normal!important;
+}
+
+.category-container:hover {
+  background: var(--button-hover-bg)!important;
+}
+
+.category-divulgacion .category-container,
+.category-outreach .category-container {
+  background: #4A31CA;
+}
+
+.category-noticias .category-container,
+.category-news .category-container {
+  background: #31CA4A;
+}
+
+.category-activismo .category-container,
+.category-activism .category-container {
+  background: #CA3165;
+}
+
+.category-opinion .category-container,
+.category-opinion-en .category-container {
+  background: #9631CA;
+}
+
+.post table {
+  width: 100%!important;
+  border-spacing: 0!important;
+  border-collapse: collapse!important;
+}
+.post thead {
+  text-align: center;
+}
+.post td{
+  border: 1px solid #ddd;
+  padding: 0.3em;
+}
+
+/* PHONE VIEW */
+@media only screen and (max-width: 768px) {
+  .page, .single {
+    background:var(--box-bg);
+  }
+
+  [data-theme="dark"] .page, 
+  [data-theme="dark"] .single {
+    background: var(--box-bg)!important;
+  }
+  .page-container {
+    margin: 0;
+  }
+  .page-box {
+    box-shadow:none!important;
+  }
+}
+
+/* PAGINATION */
+.nav-links .page-numbers {
+    padding: 0.5em;
+}
+
+.page-numbers.current {
+    font-weight: 600;
+}
+
+.pagination .nav-links {
+  padding: 0.5em;
+    margin: 12.5px auto;
+    max-width: 300px;
+    text-align: center;
+    border-radius: 4px;
+    display: table;
+    box-shadow: 0 2px 10px rgba(0,0,0,.15);
+}
+
+.pagination .page-container-numbers {
+    padding: 0.5em;
+    display: table-cell;
+}
+
+.pagination .page-container-numbers.current {
+    font-weight: bold;
+}
+
+/* FOOTER
+   ========================================================================== */
+#footer {
+  background-color: var(--footer-bg);
+  transition: background var(--general-transition);
+}
+
+#footer-elements {
+  max-width: 1200px;
+  margin:auto;
+  padding: 1em;
+}
+
+#footer-columns {
+  display: inline-block;
+  width: 69%;
+}
+
+.footer-col {
+  display: inline-block;
+  vertical-align: text-top;
+  margin:25px;
+}
+
+.footer-col h3 {
+  padding-bottom: 10px;
+}
+
+.footer-list li {
+  list-style: none;
+  padding: 5px;
+}
+
+#copyright {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* PHONE VIEW */
+@media only screen and (max-width: 768px) {
+  .footer-list{
+    text-align: left;
+  }
+}
+
+@media only screen and (max-width: 385px) {
+  #footer-columns {
+    display: block;
+    width: 100%;
+  }
+  #footer-elements {
+    text-align: center;
+    padding: 0;
+  }
+  #copyright { padding-bottom: 1em; }
+  .footer-col { margin: 20px; }
+}
+
+
+/* COOKIES POPUP "PEA COOK"
+   ========================================================================== */
+.pea_cook_wrapper {
+  left: 50%!important;
+  margin: 0 0 0-227px!important; /* Half the width of the div */
+  max-width: 407px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.15)!important;
+  background-color: var(--box-bg)!important;
+  color: var(--box-text)!important;
+  border: 3px solid #00c07f;
+  transition: background var(--general-transition)!important;
+}
+.pea_cook_wrapper p {
+  color: inherit!important;
+  font-family: 'Montserrat', sans-serif!important;
+  font-weight: 500!important;
+  font-size: 14px!important;
+}
+
+.pea_cook_wrapper a {
+  color: #FF5F6D!important;
+  font-weight: 600;
+  transition: color var(--general-transition)!important;
+}
+
+.pea_cook_wrapper a:hover {
+  color: #FFC371!important;
+}
+
+.pea_cook_btn {
+  font: inherit!important;
+  margin: 15px 0!important;
+  border: none!important;
+  padding: 10px!important;
+  box-shadow: 0 2px 10px rgba(0,0,0,.15)!important;
+  text-shadow: none!important;
+  background: var(--button-bg)!important;
+  transition: background var(--general-transition)!important;
+}
+
+.pea_cook_btn:hover {
+  background: var(--button-hover-bg)!important;
+}
+
+/* PHONE VIEW */
+@media only screen and (max-width: 505px) {
+  .pea_cook_wrapper {
+    left: 0!important;
+    bottom: 60px!important;
+    margin: 0 5%!important;
+  }
+}
