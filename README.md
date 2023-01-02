@@ -1,2 +1,2 @@
 # Green-Bitacora
-This is the WordPress theme for the Green Bitacora website.
+This is the WordPress theme for the Green Bitácora website: https://greenbitacora.org
